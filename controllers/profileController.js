@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { uuidv7 } = require('uuidv7'); // This looks for the 'uuidv7' package// Logic to check if the name already exists in the database, and if so, return the existing profile instead of creating a new one. This is important to prevent duplicates and ensure that each name corresponds to a unique profile.
-const Profile = require("../models/Profile");
+const Profile = require("../models/profile");
 const getAgeGroup = require("../utils/getAgeGroup");
 const getPrimaryCountry = require("../utils/getPrimaryCountry");
 
