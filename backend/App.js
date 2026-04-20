@@ -46,7 +46,7 @@ app.use('/api/auth', require('./routes/authRoutes'));
 //   console.log(`Server is listening on port ${port}`);
 // });
 
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`Server is running on port ${port}`);
 });
 
