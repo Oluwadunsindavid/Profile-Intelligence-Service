@@ -1,17 +1,28 @@
 const express = require("express");
 const router = express.Router();
-const profileController = require("../controllers/profileController");
+const {
+  createProfile,
+  getProfiles,
+  getProfileById,
+  deleteProfile,
+} = require("../controllers/profileController");
+const { protect } = require("../middleware/authmiddleware");
+
+// This applies 'protect' to every route below it. 
+// Because our 'protect' is "smart," it won't block guests; 
+// it just checks if a user exists. If they do, it attaches them to req.user. If not, req.user is null.
+router.use(protect);
 
 // 1. POST /api/profiles
-router.post("/profiles", profileController.createProfile);
+router.post("/", createProfile);
 
 // 2. GET /api/profiles
-router.get("/profiles", profileController.getProfiles);
+router.get("/", getProfiles);
 
 // 3. GET /api/profiles/:id
-router.get("/profiles/:id", profileController.getProfileById);
+router.get("/:id", getProfileById);
 
 // 4. DELETE /api/profiles/:id
-router.delete("/profiles/:id", profileController.deleteProfile);
+router.delete("/:id", deleteProfile);
 
 module.exports = router;

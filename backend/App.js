@@ -37,6 +37,9 @@ app.get("/", (req, res) => {
 
 // Use the routes with the /api prefix as required by the brief
 app.use('/api/profiles', profileRoutes);
+// Auth Routes
+app.use('/api/auth', require('./routes/authRoutes'));
+
 
 // Set the server to listen on a port defined in the environment variables, and log a message to the console when it starts successfully.
 app.listen(port, () => {
