@@ -1,7 +1,12 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  // This line ensures it uses your Railway URL in production
+  // and localhost only when you are developing.
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 // Automatically add token to every request if it exists
